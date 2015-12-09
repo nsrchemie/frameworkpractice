@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <title>Simple Leaflet Map</title>
+    <meta charset="utf-8" />
+    <link 
+        rel="stylesheet" 
+        href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"
+    />
+</head>
+<body>
+
+<div>
+    <h1><a href="/">Django Girls Blog</a></h1>
+</div>
+
+{% for post in posts %}
+    <div>
+        
+        <h1><a href="">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaks }}</p>
+        <h4>{{post.description}}</h4>
+        <img src={{ post.picture.url }} height="200px" width="250px" border="1px"/><p>published: {{ post.published_date }}</p>
+    </div>
+{% endfor %}
+
+    <div id="map" style="width: 1200px; height: 800px"></div>
+</body>
+
+<script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js">
+</script>
+<script>
+
+    // $("#map").on('click', onClick);
+
+    // function onClick(d) {
+    //     var title
+    //     var marker_title = "#" + d.target.options.title.toLowerCase();
+    //     if ( $(marker_title) ){
+    //    // Call up the video.
+    //        alert("Marker ID is: " + marker_title);
+    //    }
+    // };
+
+
+
+
+	var planes = [
+		["Vancouveria sp.",45.535449,-122.724988, "<img src = https://www.nargs.org/sites/default/files/forum-images/Vancouveria_hexandra_05-26-2010rs2.jpg height='200' width='280'>"],
+		// ["7C6B38",-41.30269,173.63696],
+		// ["7C6CA1",-41.49413,173.5421],
+		// ["7C6CA2",-40.98585,174.50659],
+		// ["C81D9D",-40.93163,173.81726],
+		// ["C82009",-41.5183,174.78081],
+		// ["C82081",-41.42079,173.5783],
+		// ["C820AB",-42.08414,173.96632],
+		// ["C820B6",-41.51285,173.53274]
+		];
+
+        var map = L.map('map').setView([45.5200, -122.6819], 8);
+        var newMarker;
+        mapLink = 
+            '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+        L.tileLayer(
+            'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; ' + mapLink + ' Contributors',
+            maxZoom: 18,
+            }).addTo(map);
+
+		for (var i = 0; i < planes.length; i++) {
+			marker = new L.marker([planes[i][1],planes[i][2]],
+                {title : [planes[i][0]]})
+				.bindPopup(planes[i][3])
+				.addTo(map);
+
+
+
+        newMarkerGroup = new L.LayerGroup();
+        map.on('click', addMarker);
+		}
+
+function addMarker(e){
+    var newMarker = new L.marker(e.latlng).addTo(map);
+    $('#info').attr('style','display: block')
+}
+
+var submitnewplant = $('#')
+
+function saveMarker(e){
+    planes.append()}
+    </script>
+
