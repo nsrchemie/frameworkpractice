@@ -44,19 +44,26 @@
     // };
 
 
+// var planes;
+// {% for post in posts %}
+// 	planes += [["'{{post.title}}'" + ',' + {{post.location}} + ',' + "'<img src={{post.picture.url}} height='200' width='280'>'"]];
+// 	console.log(planes.length)
+// {% endfor %}
+// console.log(planes);
+// [[{{post.title}}, {{post.location}}, "<img src={{post.picture.url}}">];
 
-
-	var planes = [
-		["Vancouveria sp.",45.535449,-122.724988, "<img src = https://www.nargs.org/sites/default/files/forum-images/Vancouveria_hexandra_05-26-2010rs2.jpg height='200' width='280'>"],
-		// ["7C6B38",-41.30269,173.63696],
-		// ["7C6CA1",-41.49413,173.5421],
-		// ["7C6CA2",-40.98585,174.50659],
-		// ["C81D9D",-40.93163,173.81726],
-		// ["C82009",-41.5183,174.78081],
-		// ["C82081",-41.42079,173.5783],
-		// ["C820AB",-42.08414,173.96632],
-		// ["C820B6",-41.51285,173.53274]
-		];
+	// var planes = [
+	// 	["Vancouveria sp.",45.535449,-122.724988, "<img src = https://www.nargs.org/sites/default/files/forum-images/Vancouveria_hexandra_05-26-2010rs2.jpg height='200' width='280'>"],
+	// 	// ["7C6B38",-41.30269,173.63696],
+	// 	// ["7C6CA1",-41.49413,173.5421],
+	// 	// ["7C6CA2",-40.98585,174.50659],
+	// 	// ["C81D9D",-40.93163,173.81726],
+	// 	// ["C82009",-41.5183,174.78081],
+	// 	// ["C82081",-41.42079,173.5783],
+	// 	// ["C820AB",-42.08414,173.96632],
+	// 	// ["C820B6",-41.51285,173.53274]
+	// 	];
+	// 	console.log(planes.length);
 
         var map = L.map('map').setView([45.5200, -122.6819], 8);
         var newMarker;
@@ -67,27 +74,30 @@
             attribution: '&copy; ' + mapLink + ' Contributors',
             maxZoom: 18,
             }).addTo(map);
-
-		for (var i = 0; i < planes.length; i++) {
-			marker = new L.marker([planes[i][1],planes[i][2]],
-                {title : [planes[i][0]]})
-				.bindPopup(planes[i][3])
+{% for post in posts %}
+		// for (var i = 0; i < planes.length; i++) {
+			marker = new L.marker([{{post.location}}],
+                {title : "{{post.title}}"})
+				.bindPopup("<img src={{post.picture.url}} height='200' width='280'>")
 				.addTo(map);
 
 
 
-        newMarkerGroup = new L.LayerGroup();
-        map.on('click', addMarker);
-		}
+        // newMarkerGroup = new L.LayerGroup();
+        // map.on('click', addMarker);
+		// }
+{% endfor %}
 
 function addMarker(e){
     var newMarker = new L.marker(e.latlng).addTo(map);
     $('#info').attr('style','display: block')
 }
 
-var submitnewplant = $('#')
+// var submitnewplant = $('#')
 
-function saveMarker(e){
-    planes.append()}
+// function saveMarker(e){
+//     planes.append()}
     </script>
+
+
 

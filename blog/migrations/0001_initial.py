@@ -16,12 +16,13 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Post',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, primary_key=True, auto_created=True)),
+                ('id', models.AutoField(auto_created=True, verbose_name='ID', serialize=False, primary_key=True)),
                 ('title', models.CharField(max_length=200)),
                 ('description', models.TextField()),
                 ('created_date', models.DateTimeField(default=django.utils.timezone.now)),
-                ('published_date', models.DateTimeField(blank=True, null=True)),
-                ('picture', models.ImageField(upload_to='%Y/%m/%d', blank=True, null=True)),
+                ('published_date', models.DateTimeField(null=True, blank=True)),
+                ('picture', models.ImageField(null=True, upload_to='%Y/%m/%d', blank=True)),
+                ('location', models.CharField(max_length=200)),
                 ('author', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
         ),
