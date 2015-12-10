@@ -8,11 +8,13 @@
         rel="stylesheet" 
         href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"
     />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
 </head>
 <body>
 
 <div>
-    <h1><a href="/">Django Girls Blog</a></h1>
+    <h1><a href="/">Phytomap</a></h1>
 </div>
 
 {% for post in posts %}
@@ -24,8 +26,8 @@
         <img src={{ post.picture.url }} height="200px" width="250px" border="1px"/><p>published: {{ post.published_date }}</p>
     </div>
 {% endfor %}
-
-    <div id="map" style="width: 1200px; height: 800px"></div>
+<h3 id='location'></h3>
+    <div id="map" style="width: 1000px; height: 700px"></div>
 </body>
 
 <script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js">
@@ -64,8 +66,9 @@
 	// 	// ["C820B6",-41.51285,173.53274]
 	// 	];
 	// 	console.log(planes.length);
-
-        var map = L.map('map').setView([45.5200, -122.6819], 8);
+		var portland = [45.5200, -122.6819]
+		var defaultzoom = 8
+        var map = L.map('map').setView(portland, defaultzoom);
         var newMarker;
         mapLink = 
             '<a href="http://openstreetmap.org">OpenStreetMap</a>';
@@ -80,18 +83,22 @@
                 {title : "{{post.title}}"})
 				.bindPopup("<img src={{post.picture.url}} height='200' width='280'>")
 				.addTo(map);
-
+{% endfor %}
 
 
         // newMarkerGroup = new L.LayerGroup();
-        // map.on('click', addMarker);
-		// }
-{% endfor %}
 
-function addMarker(e){
-    var newMarker = new L.marker(e.latlng).addTo(map);
-    $('#info').attr('style','display: block')
-}
+		// }
+
+// var coordinates = document.getElementById('location');
+// function addMarker(e){
+//     var newMarker = new L.marker(e.latlng).addTo(map);
+//     	var m = newMarker.getLatLng()
+//     	coordinates.innerHTML = 'Lat: ' + m.lat + '<br>Long: ' + m.lng;
+// }
+// map.on('click', addMarker);
+
+
 
 // var submitnewplant = $('#')
 
