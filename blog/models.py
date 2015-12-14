@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.timezone import now as timezone_now
 from django.utils.translation import ugettext_lazy as _
 import os
+from django.forms import ModelForm
 
 # def upload_to(instance, filename):
 #     now = timezone_now()
@@ -25,6 +26,10 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+# class PostForm(ModelForm):
+#     class Meta:
+#         model = Post
+#         fields = ['title','description','picture','location']
 
 #for forms
 # from django import forms

@@ -8,17 +8,45 @@
         rel="stylesheet" 
         href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"
     />
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous"> -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
+    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAABILAAASCwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOzvcYDk54HGGhv8BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWFjyBTEx7dkrK/v/ODjidwAAAAAAAAAAAAAAAGNj/wSUlP8BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADo62lMrK/z/Kir//zAw7+hQUOsMODjebDIy7LszM+XsWVnqDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1NeOHKir//yoq//8uLvH8MzPq0Soq/v8qKv//MTHu1gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEND2x87O9dOOTnbmyoq//8qKv//Li7u/yoq//8qKv//Kir//zQ055QAAAAAAAAAAAAAAAAAAAAAOLdsG0FUzD0uLu/8Kir+/yws9v8vL+z/JCTp/ykp5/8eHuv/JCT5/yws+P8+PtpTAAAAAAAAAAAAAAAAAAAAADfEcQoyr2WrMUzP/Coq//8rK/z/Kirh/yIiy/8ZGdX/HR3f/yoq5/8tLfH/Li7y+Tc345FLS+QJAAAAAAAAAAAAAAAAO7x2DTOEjbcsLvT/Kyv5/ysr6v8SErj/Fxe+/yAg1/8gIPT/Kir//yoq//8qKv7/MzPpx0ZG4BE2smxGMKxjjTKzZYA0uWuSMlW89S0t8f8wMOf/ICDZ/yEhyv8pKen/Kir//yoq//8qKv//Kir//yoq//80NOjDAAAAADm8cBY0tGh8M6Rz/S0u8v8qKv//Kir+/y4u8P8sLPP/Jibu/zAw5f4vL/H6LCz1/y0t8/4zM+vDPT3ZSE/pmAIztWljM7Zn5jV3n8gqKv//Kir//yoq//8sLPf/LCz2/yoq//8rK/r/Pz/bVkhI5B5GRuMVbGz/AAAAAAA1s2loMa5kbje7chk4ONpjKir//yoq//8qKv7/NDTkzy4u9PcqKv//Kir//zc33msAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQUHXKi4u8P8vL/DxNjbjjUtL4wpBQdovMTHu3yoq//84ONxqAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFhY/wJDQ9olXV3/BQAAAAAAAAAAAAAAAERE3Bc1NeScPj7ZPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAPx/AAD4cwAA+AMAAPgHAADgBwAAgAcAAIABAADAAAAAAAAAAIAAAAAAAQAAAA8AAOAPAADjjwAA//8AAA==" rel="icon" type="image/x-icon">
 </head>
 <body>
+<style>
+* {
+	margin:0;
+	padding:0;
 
-<div>
+}
+div.contain {
+	position:right;
+	background-color:#043131;
+	margin-left:50em;
+/*	width:30em;*/
+}
+div.sitings {
+	width:28.125em;
+	padding:.625em;
+	border: .312em outset #00AF7B;
+/*	outline-width: 10%;*/
+/*	border-left-width:300px;*/
+	margin:.625em;
+	position:right;
+	left:70%;
+	background-color: #0AC66D;
+}
+
+
+
+</style>
+
+<div class="Phytoheader">
     <h1><a href="/">Phytomap</a></h1>
 </div>
-
+<div class="contain">
 {% for post in posts %}
-    <div>
+    <div class ="sitings">
         
         <h1><a href="">{{ post.title }}</a></h1>
         <p>{{ post.text|linebreaks }}</p>
@@ -26,13 +54,75 @@
         <img src={{ post.picture.url }} height="200px" width="250px" border="1px"/><p>published: {{ post.published_date }}</p>
     </div>
 {% endfor %}
+</div>
 <h3 id='location'></h3>
-    <div id="map" style="width: 1000px; height: 700px"></div>
+<button id="show_form">Add a new siting!</button>
+<form id ='addition_form' method="POST" enctype="multipart/form-data" action=''>
+<!-- <form action="{{ action }}" method="POST"> -->
+  {% csrf_token %}
+ <!--  {% if form.non_field_errors %}
+    <ul>
+      {% for error in form.non_field_errors %}
+        <li>{{ error }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  {% for field in form %}
+  <div id="{{ field.auto_id }}_container">
+    {{ field.help_text }}
+    <div>
+      {{ field.label_tag }} {{ field }}
+    </div>
+    <div id="{{ field.auto_id }}_errors">
+      {{ field.errors }}
+    </div>
+  </div>
+  {% endfor %}
+ -->
+
+<!--   <input id="save_contact" type="submit" value="Save" /> -->
+{{form.as_p}}
+<input type="submit" value="Submit" />
+</form>
+<p id='lat'></p>
+
+</form>
+
+
+
+
+    <div id="map" style="width: 62.5em; height:35em"></div>
 </body>
 
 <script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js">
 </script>
+
+
 <script>
+$(document).ready(function(){
+	var lat = $('#addition_form');
+	lat.hide();
+
+});
+$('#show_form').click(function(){
+	// var showform = document.getElementById("#addition_form");
+	// showform.style.display = "block";
+	$("#addition_form").toggle()
+
+	function addMarker(e){
+    var newMarker = new L.marker(e.latlng).addTo(map);
+    	var m = newMarker.getLatLng()
+    	var loc = $('#id_location').html()
+    	loc = loc + m.lat + ',' + m.lng
+    	$('#id_location').html(loc)
+
+
+    	// $("#id_location").text(m.lat + ',' + m.lng);
+    	// $("#id_location").text();
+};
+map.on('click', addMarker);
+});
+
 
     // $("#map").on('click', onClick);
 
@@ -44,7 +134,7 @@
     //        alert("Marker ID is: " + marker_title);
     //    }
     // };
-
+// class="post-form" enctype="multipart/form-data"
 
 // var planes;
 // {% for post in posts %}
