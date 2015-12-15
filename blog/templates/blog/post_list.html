@@ -8,8 +8,17 @@
         rel="stylesheet" 
         href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"
     />
-    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous"> -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    
+
+
+
     <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAABILAAASCwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOzvcYDk54HGGhv8BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWFjyBTEx7dkrK/v/ODjidwAAAAAAAAAAAAAAAGNj/wSUlP8BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADo62lMrK/z/Kir//zAw7+hQUOsMODjebDIy7LszM+XsWVnqDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1NeOHKir//yoq//8uLvH8MzPq0Soq/v8qKv//MTHu1gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEND2x87O9dOOTnbmyoq//8qKv//Li7u/yoq//8qKv//Kir//zQ055QAAAAAAAAAAAAAAAAAAAAAOLdsG0FUzD0uLu/8Kir+/yws9v8vL+z/JCTp/ykp5/8eHuv/JCT5/yws+P8+PtpTAAAAAAAAAAAAAAAAAAAAADfEcQoyr2WrMUzP/Coq//8rK/z/Kirh/yIiy/8ZGdX/HR3f/yoq5/8tLfH/Li7y+Tc345FLS+QJAAAAAAAAAAAAAAAAO7x2DTOEjbcsLvT/Kyv5/ysr6v8SErj/Fxe+/yAg1/8gIPT/Kir//yoq//8qKv7/MzPpx0ZG4BE2smxGMKxjjTKzZYA0uWuSMlW89S0t8f8wMOf/ICDZ/yEhyv8pKen/Kir//yoq//8qKv//Kir//yoq//80NOjDAAAAADm8cBY0tGh8M6Rz/S0u8v8qKv//Kir+/y4u8P8sLPP/Jibu/zAw5f4vL/H6LCz1/y0t8/4zM+vDPT3ZSE/pmAIztWljM7Zn5jV3n8gqKv//Kir//yoq//8sLPf/LCz2/yoq//8rK/r/Pz/bVkhI5B5GRuMVbGz/AAAAAAA1s2loMa5kbje7chk4ONpjKir//yoq//8qKv7/NDTkzy4u9PcqKv//Kir//zc33msAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQUHXKi4u8P8vL/DxNjbjjUtL4wpBQdovMTHu3yoq//84ONxqAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFhY/wJDQ9olXV3/BQAAAAAAAAAAAAAAAERE3Bc1NeScPj7ZPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAPx/AAD4cwAA+AMAAPgHAADgBwAAgAcAAIABAADAAAAAAAAAAIAAAAAAAQAAAA8AAOAPAADjjwAA//8AAA==" rel="icon" type="image/x-icon">
 </head>
 <body>
@@ -19,22 +28,53 @@
 	padding:0;
 
 }
-div.contain {
-	position:right;
+body {
 	background-color:#043131;
-	margin-left:50em;
+}
+div.contain {
+	float:right;
+
+/*	margin-right:50em;*/
 /*	width:30em;*/
+	display:inline-block;
 }
 div.sitings {
 	width:28.125em;
 	padding:.625em;
-	border: .312em outset #00AF7B;
+	border: .312em outset #4c614e;
 /*	outline-width: 10%;*/
 /*	border-left-width:300px;*/
 	margin:.625em;
 	position:right;
 	left:70%;
+	background-color: #5C755E;
+	color:white;
+}
+div.sitings a{
+	color:#c8f7c5;
+}
+#show_form {
+/*	display:inline-block;*/
+}
+#addition_form {
+	top:2em;
 	background-color: #0AC66D;
+	width:28.125em;
+	display:inline-block;
+}
+div.Phytoheader {
+	background-color: #0BC67C;
+	display:inline-block;
+	width:100%;
+	border-bottom-style:groove;
+	border-bottom:thick;
+}
+h1.headtitle {
+	color:white;
+	margin-left: .6em;
+	font-size: 22px;
+	margin-bottom:.9em;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
 
@@ -42,7 +82,7 @@ div.sitings {
 </style>
 
 <div class="Phytoheader">
-    <h1><a href="/">Phytomap</a></h1>
+    <h1 class="headtitle">Phytomap</h1>
 </div>
 <div class="contain">
 {% for post in posts %}
@@ -55,7 +95,8 @@ div.sitings {
     </div>
 {% endfor %}
 </div>
-<h3 id='location'></h3>
+<!-- <h3 id='location'></h3>    -->
+<div id="map" style="width: 86.37em; height:57em; margin-top:.8em; box-shadow: 3px 3px 10px 5px #000;"></div>
 <button id="show_form">Add a new siting!</button>
 <form id ='addition_form' method="POST" enctype="multipart/form-data" action=''>
 <!-- <form action="{{ action }}" method="POST"> -->
@@ -91,7 +132,7 @@ div.sitings {
 
 
 
-    <div id="map" style="width: 62.5em; height:35em"></div>
+ 
 </body>
 
 <script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js">
@@ -111,10 +152,11 @@ $('#show_form').click(function(){
 
 	function addMarker(e){
     var newMarker = new L.marker(e.latlng).addTo(map);
-    	var m = newMarker.getLatLng()
-    	var loc = $('#id_location').html()
-    	loc = loc + m.lat + ',' + m.lng
-    	$('#id_location').html(loc)
+    	var m = newMarker.getLatLng();
+		$('#id_location').val(m.lat + ',' + m.lng);
+		map.off("click");
+    	// loc = ;
+    	// $('#id_location').html(loc);
 
 
     	// $("#id_location").text(m.lat + ',' + m.lng);
@@ -122,6 +164,7 @@ $('#show_form').click(function(){
 };
 map.on('click', addMarker);
 });
+
 
 
     // $("#map").on('click', onClick);
