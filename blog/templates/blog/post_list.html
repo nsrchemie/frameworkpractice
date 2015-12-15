@@ -37,6 +37,9 @@ div.contain {
 /*	margin-right:50em;*/
 /*	width:30em;*/
 	display:inline-block;
+	overflow: scroll;
+	height:50em;
+	width:30em;
 }
 div.sitings {
 	width:28.125em;
@@ -91,14 +94,14 @@ h1.headtitle {
         <h1><a href="">{{ post.title }}</a></h1>
         <p>{{ post.text|linebreaks }}</p>
         <h4>{{post.description}}</h4>
-        <img src={{ post.picture.url }} height="200px" width="250px" border="1px"/><p>published: {{ post.published_date }}</p>
+        <img src={{ post.picture.url }} height="200px" width="320px" border="1px"/><p>published: {{ post.published_date }}</p>
     </div>
 {% endfor %}
 </div>
 <!-- <h3 id='location'></h3>    -->
 <div id="map" style="width: 86.37em; height:57em; margin-top:.8em; box-shadow: 3px 3px 10px 5px #000;"></div>
 <button id="show_form">Add a new siting!</button>
-<form id ='addition_form' method="POST" enctype="multipart/form-data" action=''>
+<form id ='addition_form' action="{% url 'post_list' %}" method="POST" enctype="multipart/form-data" action=''>
 <!-- <form action="{{ action }}" method="POST"> -->
   {% csrf_token %}
  <!--  {% if form.non_field_errors %}
